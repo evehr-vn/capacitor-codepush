@@ -342,6 +342,7 @@ export class LocalPackage extends Package {
                 yield FileUtil.deleteEntriesFromDataDirectory(newPackageLocation, manifest.deletedFiles);
             }
             catch (error) {
+                CodePushUtil.logError(null, error);
                 throw new Error("Cannot perform diff-update.");
             }
         });

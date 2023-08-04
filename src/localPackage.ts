@@ -395,6 +395,7 @@ export class LocalPackage extends Package implements ILocalPackage {
             manifest = JSON.parse(content);
             await FileUtil.deleteEntriesFromDataDirectory(newPackageLocation, manifest.deletedFiles);
         } catch (error) {
+            CodePushUtil.logError(null, error);
             throw new Error("Cannot perform diff-update.");
         }
     }
